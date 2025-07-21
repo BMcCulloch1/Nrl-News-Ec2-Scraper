@@ -1,13 +1,32 @@
-# Python
+# Python cache and bytecode
 __pycache__/
 *.py[cod]
-*.env
-*.sqlite3
-.env
-venv/
+*.pyo
 
-# macOS
+# Environment files
+.env
+*.env
+venv/
+env/
+ENV/
+.venv/
+
+# Python virtual environment logs and pip metadata
+pip-log.txt
+pip-delete-this-directory.txt
+
+# macOS system files
 .DS_Store
 
-# Output
+# VS Code settings
+.vscode/
+
+# Output and temp files
+*.log
+*.sqlite3
+*.tmp
+*.bak
+
+# Your project outputs
 latest_nrl_news.json
+logs/

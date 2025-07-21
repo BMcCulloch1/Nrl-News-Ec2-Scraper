@@ -1,0 +1,5 @@
+# Run scraper every hour
+0 * * * * /home/ec2-user/Rugby-News-/run_scraper.sh >> /home/ec2-user/Rugby-News-/logs/cron.log 2>&1
+
+# Run scraper on boot
+@reboot /home/ec2-user/Rugby-News-/run_scraper.sh >> /home/ec2-user/Rugby-News-/logs/cron.log 2>&1
