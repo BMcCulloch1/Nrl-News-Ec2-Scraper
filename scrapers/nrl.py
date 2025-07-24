@@ -3,7 +3,6 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 import re
 
-
 def fetch_nrl_news():
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
@@ -20,16 +19,16 @@ def fetch_nrl_news():
             title = clean_title(raw_title)
             href = article.get('href')
             if title and href:
+                full_url = "https://www.nrl.com" + href
                 news_list.append({
                     "source": "NRL",
                     "title": title,
-                    "url": "https://www.nrl.com" + href,
+                    "url": full_url,
                     "timestamp": datetime.utcnow().isoformat()
                 })
 
         browser.close()
         return news_list
-    
 
 def clean_title(title):
     return re.sub(r'^\d{1,2}:\d{2}', '', title).strip()
