@@ -5,7 +5,6 @@ from scrapers.zerotackle import fetch_zerotackle_news
 from utils.upload import upload_json_to_s3
 from utils.combine_news import get_combined_news  
 import json
-import boto3
 import os
 
 # Global Variables 

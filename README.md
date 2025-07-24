@@ -1,16 +1,24 @@
-### NRL-News
-A personal project that scrapes National Rugby League (sport) and Zero Tackle news, stores it in S3, and runs automatically on an AWS EC2 instance.
+# NRL News Scraper
 
+A small Python project that scrapes National Rugby League (NRL) and Zero Tackle news, saves the articles as JSON, and uploads the results to an AWS S3 bucket. It’s designed to run automatically on an EC2 instance.
 
-### Cron Setup
+## What It Does
 
-This project uses two cron jobs:
+- Scrapes articles from NRL and Zero Tackle using Playwright + BeautifulSoup  
+- Merges and sorts results by timestamp  
+- Removes duplicate articles (based on URL)  
+- Saves two files:
+  - `latest_nrl_news.json`: 5 newest articles per source  
+  - `all_nrl_news.json`: full history of articles (deduplicated)  
+- Uploads both files to an S3 bucket using `boto3`
 
-- Every hour: Runs the scraper and uploads news to S3.
-- On reboot: Ensures the scraper runs if the EC2 restarts.
+## Cron Setup
 
-See `crontab.txt` for config/setup.
+This project uses two cron jobs on EC2:
 
-To install on EC2 inst.:
+- **Hourly**: Runs the scraper every hour  
+
+To set up the cron jobs:
+
 ```bash
 crontab crontab.txt
