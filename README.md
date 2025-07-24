@@ -102,7 +102,8 @@ nrl-news-scraper/
 │   ├── nrl.py
 │   └── zerotackle.py
 ├── utils/
-│   └── upload.py
+│   ├── upload.py
+│   └── combine_news.py
 ├── run_scraper.sh
 ├── main.py
 ├── requirements.txt
